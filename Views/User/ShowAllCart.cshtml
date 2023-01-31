@@ -1,0 +1,76 @@
+﻿
+@{
+    ViewData["Title"] = "ShowAllCart";
+}
+@*<div class="alert">
+    @TempData["itemAddedMessage"]
+
+</div>*@
+
+<div class="row">
+    <div class="col-md-9">
+        <div class="card">
+            <div class="card-header">
+                <center>
+                    <h4>All Carts</h4>
+                </center>
+
+            </div>
+            <div class="card-body">
+                @foreach(var item in Model)
+                {
+                    <div class="row">
+                        <div class="col-md-3">
+                            <center>
+                                <img style="width:150px;height:150px" src="@item.ImageFile" class="card-img-top" alt=".....">
+                            </center>
+
+
+                        </div>
+                      
+                        <h4 class="card-tittle" style="font-family:'Times New Roman', Times, serif">@item.ProductName</h4>
+                        <p class="card-text">@item.ProductDescription</p>
+                        <div class="row">
+                            <div class="col-8">
+                                <h6>Price <span style="color:violet" class=" badge bg-secondary">@item.ProductPrice</span></h6>
+                            </div>
+                            <div class="col-16">
+                                <span style="color:navajowhite" class=" badge rounded-pill bg-secondary ">@item.category</span>
+                            </div>
+
+
+                        </div>
+                        <h6>Items Left <span class="primary">@item.NumberOfProduct</span></h6>
+
+
+                        <div class="row">
+                            <div class="col-8">
+                                <a asp-action="RemoveCart" asp-route-id="@item.Id" class="btn btn-primary btn-sm Active">Remove To Cart</a>
+                            </div>
+                            <div class="col-3">
+                               
+                            </div>
+                           
+
+                        </div>
+
+
+                    </div>
+                }
+                <center>
+                    @if (Model.Count == 0)
+                    {
+                        <a asp-action="GetAllProduct" class="btn btn-info btn-sm Active mt-5">Buy Products</a>
+                    }
+                    <a asp-action="AddAddress" class="btn btn-info btn-sm Active mt-5">Place Order </a>
+                </center>
+                 
+
+            </div>
+
+            </div>
+
+        </div>
+
+    </div>
+

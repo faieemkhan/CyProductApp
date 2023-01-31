@@ -1,0 +1,64 @@
+﻿@model IEnumerable<MVCCoreApplication.Models.Admin>
+
+@{
+    ViewData["Title"] = "AllAdmins";
+}
+@if (TempData["AdminMessage"] != null)
+{
+    <div class="alert alert-success">
+
+        @TempData["AdminMessage"]
+    </div>
+}
+
+<h1>AllAdmins</h1>
+
+<p>
+    <a asp-action="AllAdmins"></a>
+    <hr/>
+    // <a asp-action="RegisterAdmin">SignUp</a>
+      //<a asp-action="AdminLogin">Login</a>
+</p>
+<table class="table table-hover table-responsive">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.UserName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Password)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Location)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Password)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Location)
+            </td>
+            <td>
+                
+                <a asp-action="EditProduct" asp-route-id="@item.Id"class="btn btn-secondary btn-sm Active">Edit</a> 
+                <a asp-action="ProductDetails" asp-route-id="@item.Id"class="btn btn-info btn-sm Active">Details</a> 
+                <a asp-action="DeleteProduct" asp-route-id="@item.Id"class="btn btn-danger btn-sm Active">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

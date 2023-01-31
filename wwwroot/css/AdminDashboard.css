@@ -1,0 +1,11 @@
+﻿.h1{
+    color:#9bcbed;
+    font-family:'Times New Roman', Times, serif;
+    font-display:auto;
+    font-size:40px;
+}
+.table{
+    width:100px;
+    border-color:#000000;
+    box-shadow:2px;
+}

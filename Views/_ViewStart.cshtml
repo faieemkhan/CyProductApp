@@ -1,0 +1,16 @@
+﻿@using Microsoft.AspNetCore.Http;
+
+@{
+    var controller = Context.Request.RouteValues["Controller"].ToString();
+    string layout = " ";
+
+    if (controller == "Admin")
+    {
+        layout = "~/Views/Shared/Admin_Layout.cshtml";
+    }
+    else
+    {
+        layout = "~/Views/Shared/_LayoutUser.cshtml";
+    }
+    Layout = layout;
+}

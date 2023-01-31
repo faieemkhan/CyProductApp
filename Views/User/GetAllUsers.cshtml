@@ -1,0 +1,65 @@
+﻿@model IEnumerable<MVCCoreApplication.Models.Product>
+<link rel="stylesheet" href="~/css/GetAllUsers.css" />
+@{
+    ViewData["Title"] = "GetAllUsers";
+}
+<br />
+
+
+<center><h3 style="color:#0366d6"> <u>See All The Products</u></h3></center>
+<br />
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <center>
+                        <img src="@item.ImageFile" class="card-img-top" alt=".....">
+                    </center>
+                    <br/>
+                    
+                    <h4 class="card-tittle" style="font-family:'Times New Roman', Times, serif">@Html.DisplayFor(modelItem => item.ProductName)</h4>
+                         <p class="card-text">@Html.DisplayFor(modelItem => item.ProductDescription)</p>
+                         <div class="row">
+                             <div class="col-8">
+                            <h6>Price <span style="color:violet" class=" badge bg-secondary">@Html.DisplayFor(modelItem => item.ProductPrice)</span></h6>
+                             </div>
+                             <div class="col-3">
+                            <span style="color:navajowhite" class=" badge rounded-pill bg-secondary ">@Html.DisplayFor(modelItem => item.category)</span>
+                             </div>
+
+                      
+                         </div>
+                         <h6>Items Left <span class="primary">@Html.DisplayFor(modelItem => item.NumberOfProduct)</span></h6>
+                         
+                    
+                    <div class="row">
+                        <div class="col-8">
+                            <a asp-action="AddToCart" asp-route-id="@item.Id" class="btn btn-success btn-sm Active">Add To Cart</a>
+                        </div>
+                        <div class="col-3">
+                            <a asp-action="DetailsOfProduct" asp-route-id="@item.Id" class="btn btn-primary btn-sm Active">Details</a>
+                        </div>
+
+                    </div>
+                    
+                   
+                   
+
+                </div>
+
+            </div>
+           
+
+        </div>
+
+    }
+
+</div>
+
+
+
+
+
+
